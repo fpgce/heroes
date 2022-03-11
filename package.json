@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
+    "build": "webpack",
     "test": "jest --passWithNoTests --no-cache"
   },
   "author": "fernando",
@@ -30,6 +31,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "faker": "^5.5.3",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^27.3.1",
     "node-sass": "^6.0.1",
     "sass-loader": "^12.3.0",

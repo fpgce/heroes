@@ -1,14 +1,19 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require("dotenv-webpack")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const webpack = require('webpack')
 
 module.exports = {
     mode: 'development',
     entry: './src/main/index.tsx',
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     output: {
-        publicPath: '/public/js',
-        path: path.join(__dirname, 'public/js'),
+        publicPath: '/docs',
+        path: path.join(__dirname, 'docs'),
         filename: 'bundle.js'
     },
     resolve: {
@@ -53,8 +58,9 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: './public'
+            directory: path.join(__dirname, 'docs'),
         },
+        compress: true,
         historyApiFallback: true,
         devMiddleware: {
             writeToDisk: true,
@@ -64,5 +70,9 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new Dotenv(),
+        new HtmlWebpackPlugin({
+            title: 'Heroes',
+            template: path.join(__dirname,'public', 'index.html')
+        })
     ]
 }

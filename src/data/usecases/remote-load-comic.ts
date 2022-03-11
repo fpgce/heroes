@@ -26,12 +26,10 @@ export class RemoteLoadComic implements LoadComics {
         return cacheRequests[url]
       }
     }
-
     const response = await this.httpClient.request({
       url,
       method: 'get'
     })
-
     if (response.statusCode !== 200) throw new Error(response.data.message)
 
     const resolvedResponse = {
