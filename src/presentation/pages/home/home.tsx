@@ -64,7 +64,6 @@ const Home: React.FC<Props & HTMLDivElement> = ({
       const limitScroll = Math.ceil(window.innerHeight + window.scrollY)
 
       if (limitScroll >= limit) {
-        console.log('load')
         load({
           offset: offsetRef.current + defaultOffsetToLimit,
           titleStartsWith: searchRef.current,

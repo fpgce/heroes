@@ -1,4 +1,5 @@
 const path = require('path')
+const Dotenv = require("dotenv-webpack")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
@@ -62,8 +63,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new webpack.DefinePlugin({
-            "process.env": {}
-        })
+        new Dotenv(),
     ]
 }

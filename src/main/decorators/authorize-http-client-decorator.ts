@@ -5,7 +5,10 @@ export class AuthorizeHttpClientDecorator implements HttpClient {
 
   async request(data: HttpRequest): Promise<HttpResponse> {
     try {
-      const { API_PUBLIC_KEY, API_TS, API_HASH } = process.env
+      const API_PUBLIC_KEY = process.env.API_PUBLIC_KEY
+      const API_TS = process.env.API_TS
+      const API_HASH = process.env.API_HASH
+
       let [path, params] = data.url.split('?')
 
       const authorization = `&ts=${API_TS}&apikey=${API_PUBLIC_KEY}&hash=${API_HASH}`
