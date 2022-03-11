@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import styles from './input-styles.scss'
 import search from '@/presentation/assets/search.png'
@@ -11,11 +11,13 @@ interface Props {
 }
 
 const input: React.FC<Props> = (props) => {
+  const inputRef = useRef<HTMLInputElement>()
   const [input, setInput] = useState('')
 
   function submit() {
     if(input){
       props.onSubmit(input)
+      inputRef.current.blur()
     }
   }
 
@@ -31,7 +33,7 @@ const input: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.inputWrapper}>
-      <input placeholder='search by title (press Enter)' value={input} onChange={handleChange} onKeyPress={onKey}></input>
+      <input ref={inputRef} placeholder='search by title (press Enter)' value={input} onChange={handleChange} onKeyPress={onKey}></input>
       <div className={styles.cleanBtn} onClick={submit}>
         <img src={search} />
       </div>
