@@ -1,0 +1,17 @@
+@import './colors.scss';
+
+.btn {
+  min-width: 50px;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: $marvel;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}

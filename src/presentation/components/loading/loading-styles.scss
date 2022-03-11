@@ -1,0 +1,12 @@
+.loading, .loadingOpacity {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    z-index: 100;
+    left: 0px;
+    bottom: 0px;
+}
+.loadingOpacity {
+    opacity: 0;
+}

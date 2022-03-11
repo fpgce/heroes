@@ -1,0 +1,41 @@
+@import '../../styles/screen.scss';
+@import '../../styles/button.scss';
+@import '../../styles/colors.scss';
+
+.menu {
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    list-style: none;
+  }
+  .active {
+      background-color: $marvel;
+  }
+
+  @media (max-width: $small) {
+    right: 0px;
+    top: 40%;
+
+    ul {
+        display: block;
+    }
+  }
+  @media (max-width: $large) {
+    right: 0px;
+    top: 40%;
+
+    ul {
+        display: block;
+    }
+  }
+  @media (min-width: $large) {
+      left: 10vw;
+  }
+}

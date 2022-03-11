@@ -1,0 +1,55 @@
+@import '../../styles/screen.scss';
+
+body {
+  overflow: scroll;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.header {
+  width: 100%;
+  max-width: 600px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.main {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  column-count: 2;
+  // column-fill:initial;
+  column-fill: auto;
+  padding-top: 10px;
+  overflow: visible;
+
+  @media (min-width: $medium) {
+    column-count: 3;
+    max-width: $medium;
+  }
+
+  @media (min-width: $large) {
+    column-count: 3;
+    max-width: $large;
+  }
+
+  @media (min-width: $extra) {
+    column-count: 4;
+    max-width: $extra;
+  }
+
+  @media (min-width: $extraLarge) {
+    column-count: 5;
+    max-width: $extraLarge;
+  }
+}
