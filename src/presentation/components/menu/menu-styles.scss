@@ -17,6 +17,7 @@
   }
   .active {
       background-color: $marvel;
+      transform: scale(1.2);
   }
 
   @media (max-width: $small) {
