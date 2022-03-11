@@ -10,7 +10,9 @@ axios.interceptors.response.use(
         message: error.message,
         response: {
           status: 500,
-          data: null
+          data: {
+            message: 'Sem conexão com a api'
+          }
         }
       })
     }
