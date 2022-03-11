@@ -18,6 +18,13 @@ header {
   height: 40px;
 }
 
+.noContent {
+  p {
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
 .main {
   max-width: 300px;
   display: block;
