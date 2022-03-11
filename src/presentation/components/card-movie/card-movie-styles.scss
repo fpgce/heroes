@@ -2,13 +2,23 @@
 @import '../../styles/button.scss';
 @import '../../styles/colors.scss';
 
-.container {
+.hide {
+  display: none;
+}
+
+.container, .containerVisible {
+  transform: scaleY(0);
   position: relative;
   overflow: visible;
   break-inside: avoid-column;
   background-color: $backgroundCard;
   margin-bottom: 10px;
   transition: all 0.1s ease-in-out;
+}
+
+.containerVisible {
+  transition: all 0.5s;
+  transform: scaleY(1);
 }
 
 .imageWrapper {

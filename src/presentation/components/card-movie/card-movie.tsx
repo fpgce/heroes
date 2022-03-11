@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
 
 import styles from './card-movie-styles.scss'
 import favorited from '@/presentation/assets/favorited.png'
@@ -6,7 +6,6 @@ import unfavorited from '@/presentation/assets/unfavorited.png'
 import rightarrow from '@/presentation/assets/rightarrow.png'
 import { Comic, ThumbVariant } from '@/domain/models'
 import { CheckIsFavoriteSync } from '@/domain/usecases'
-import { Link } from 'react-router-dom'
 
 interface Props {
   comic: Comic
@@ -24,6 +23,7 @@ const getComicThumbVariant = (comic: Comic) => {
 }
 
 const CardMovie: React.FC<Props> = ({ comic, checkIsFavorite, onFavorite, onOpen }) => {
+  const containerRef = useRef<HTMLDivElement>()
   const isFvt = checkIsFavorite.check(comic.id)
   const [isFavorited, setIsFavorited] = useState(isFvt)
   const img = isFavorited ? <img src={favorited} /> : <img src={unfavorited} />
@@ -42,10 +42,17 @@ const CardMovie: React.FC<Props> = ({ comic, checkIsFavorite, onFavorite, onOpen
     )
   }
 
+  function onLoadImage() {
+      if(comic.thumbnail.path.includes('image_not_available')){
+        containerRef.current.classList.add(styles.hide)
+      };
+      containerRef.current.classList.add(styles.containerVisible)
+  }
+
   return (
-    <div onClick={() => onOpen(comic)} className={styles.container}>
+    <div ref={containerRef} onClick={() => onOpen(comic)} className={styles.container}>
       <div className={styles.imageWrapper}>
-        <img src={getComicThumbVariant(comic)} alt="" />
+        <img onLoad={onLoadImage} src={getComicThumbVariant(comic)} alt="" />
       </div>
       <div className={styles.footer}>
         <p>{comic.title}</p>
