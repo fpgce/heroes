@@ -1,4 +1,5 @@
 @import '../../styles/screen.scss';
+@import '../../styles/button.scss';
 
 body {
   overflow: scroll;
@@ -20,7 +21,21 @@ body {
   height: 40px;
   display: flex;
   justify-content: center;
+}
 
+.search {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.search img {
+  opacity: 0.7;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
 }
 
 .main {
@@ -28,7 +43,6 @@ body {
   display: block;
   margin: 0 auto;
   column-count: 2;
-  // column-fill:initial;
   column-fill: auto;
   padding-top: 10px;
   overflow: visible;

@@ -92,7 +92,7 @@ const Home: React.FC<Props & HTMLDivElement> = ({
       <Menu />
       <div className={styles.container} ref={containerRef}>
         <header className={styles.header}>
-          <Input onSubmit={onSubmit} />
+          <Input type='search' onSubmit={onSubmit} />
         </header>
         <main className={styles.main}>
           {listComics.map((comic, index) => (

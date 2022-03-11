@@ -1,9 +1,12 @@
 @import '../../styles/colors.scss';
 
 .inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
   background-color: $backgroundInput;
   border-radius: 50px;
-  min-width: 80%;
+  width: 100%;
   height: 100%;
 
   input {
@@ -14,5 +17,16 @@
     height: 100%;
     padding-left: 20px;
     font-size: 15px;
+  }
+  .cleanBtn {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    opacity: 0.8;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
