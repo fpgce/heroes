@@ -12,9 +12,8 @@ module.exports = {
         maxAssetSize: 512000
     },
     output: {
-        publicPath: '/docs',
+        filename: 'bundle.js',
         path: path.join(__dirname, 'docs'),
-        filename: 'bundle.js'
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', 'scss'],
@@ -66,6 +65,11 @@ module.exports = {
             writeToDisk: true,
         },
         port: 8080
+    },
+    externals: {
+        react: 'React',
+        axios: 'axios',
+        'react-dom': 'ReactDOM',
     },
     plugins: [
         new CleanWebpackPlugin(),
