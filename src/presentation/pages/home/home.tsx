@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 import styles from './home-styles.scss'
 
@@ -14,8 +14,7 @@ import {
   UpdateFavoriteComicsParams,
   CheckIsFavoriteSync
 } from '@/domain/usecases'
-import { Comic, ThumbVariant } from '@/domain/models'
-import { Link } from 'react-router-dom'
+import { Comic } from '@/domain/models'
 
 interface Props {
   comics: LoadComics
@@ -25,7 +24,7 @@ interface Props {
 
 type loadQuery = Omit<LoadComicParams, 'limit' | 'orderBy'> & { clear: boolean }
 
-const defaultOffsetToLimit = window.innerHeight > 800 ? 100 : 50
+const defaultOffsetToLimit = window.innerHeight > 800 ? 50 : 20
 
 const Home: React.FC<Props & HTMLDivElement> = ({
   comics,

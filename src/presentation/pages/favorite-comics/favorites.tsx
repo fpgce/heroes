@@ -26,7 +26,7 @@ const Favorites: React.FC<Props & HTMLDivElement> = ({
 }) => {
   const [listComics, setListComics] = useState<Comic[]>([])
 
-  function load(){
+  function load() {
     const comics = loadFavoriteComics.load()
     setListComics(comics)
   }
@@ -47,6 +47,11 @@ const Favorites: React.FC<Props & HTMLDivElement> = ({
       <Menu />
       <div className={styles.container}>
         <header></header>
+        {!listComics.length && (
+          <div className={styles.noContent}>
+            <p>You don't have any favorite comics saved </p>
+          </div>
+        )}
         <main className={styles.main}>
           {listComics.map((comic, index) => (
             <Card
