@@ -10,9 +10,9 @@ const Router: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MakeHomeScreen />} />
+        <Route path="/home" element={<MakeHomeScreen />} />
         <Route path="/favorites" element={<MakeFavoriteComics />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </BrowserRouter>
   )
